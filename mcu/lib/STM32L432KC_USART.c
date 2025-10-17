@@ -58,6 +58,7 @@ USART_TypeDef * initUSART(int USART_ID, int baud_rate) {
     USART->CR1 &= ~USART_CR1_OVER8; // Set to 16 times sampling freq
     USART->CR2 &= ~USART_CR2_STOP;  // 0b00 corresponds to 1 stop bit
 
+    // Set baud rate to 115200 (see RM 38.5.4 for details)
     // Tx/Rx baud = f_CK/USARTDIV (since oversampling by 16)
     // f_CK = 16 MHz (HSI)
 
@@ -70,9 +71,9 @@ USART_TypeDef * initUSART(int USART_ID, int baud_rate) {
 }
 
 void sendChar(USART_TypeDef * USART, char data){
-    while(!(USART->ISR & USART_ISR_TXE)); // Wait for TXE to go high
-    USART->TDR = data;                    // Write data to register
-    while(!(USART->ISR & USART_ISR_TC));  // Wait for transmission to complete
+    while(!(USART->ISR & USART_ISR_TXE));
+    USART->TDR = data;
+    while(!(USART->ISR & USART_ISR_TC));
 }
 
 void sendString(USART_TypeDef * USART, char * charArray){
