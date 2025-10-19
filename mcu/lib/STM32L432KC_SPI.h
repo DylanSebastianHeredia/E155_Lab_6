@@ -1,14 +1,21 @@
-// STM32L432KC_SPI.h
-// TODO: <YOUR NAME>
-// TODO: <YOUR EMAIL>
-// TODO: <DATE>
-// TODO: <SHORT DESCRIPTION OF WHAT THIS FILE DOES>
+// Sebastian Heredia
+// dheredia@g.hmc.edu
+// October 17, 2025
+
+// STM32L432KC_SPI.h contains header file information for STM32L432KC_SPI.c.
+
 
 #ifndef STM32L4_SPI_H
 #define STM32L4_SPI_H
 
 #include <stdint.h>
 #include <stm32l432xx.h>
+
+// Defining macros for STM32L432KC.c & main.c
+#define SPI1_SCK    PA5     // SCK = Serial Clock
+#define SPI1_MOSI   PB5     // MOSI (COPI): Controller Out Peripheral In
+#define SPI1_MISO   PA6     // MISO (CIPO): Controller In Peripheral Out
+#define SPI1_CE     PA8    // CE = Chip Enable 
 
 ///////////////////////////////////////////////////////////////////////////////
 // Function prototypes
