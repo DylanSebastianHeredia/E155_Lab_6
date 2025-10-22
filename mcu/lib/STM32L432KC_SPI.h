@@ -4,7 +4,6 @@
 
 // STM32L432KC_SPI.h contains header file information for STM32L432KC_SPI.c.
 
-
 #ifndef STM32L4_SPI_H
 #define STM32L4_SPI_H
 
@@ -12,10 +11,10 @@
 #include <stm32l432xx.h>
 
 // Defining macros for STM32L432KC.c & main.c
-#define SPI1_SCK    PA5     // SCK = Serial Clock
+#define SPI1_CE     PA11    // CE = Chip Enable 
+#define SPI1_SCK    PB3     // SCK = Serial Clock
 #define SPI1_MOSI   PB5     // MOSI (COPI): Controller Out Peripheral In
-#define SPI1_MISO   PA6     // MISO (CIPO): Controller In Peripheral Out
-#define SPI1_CE     PA8    // CE = Chip Enable 
+#define SPI1_MISO   PB4     // MISO (CIPO): Controller In Peripheral Out
 
 ///////////////////////////////////////////////////////////////////////////////
 // Function prototypes
