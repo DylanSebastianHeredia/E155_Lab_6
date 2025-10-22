@@ -11,8 +11,13 @@
 #include "stm32l432xx.h"
 #include "STM32L432KC_SPI.h"
 
+// Sets the DS1722 temperature resolution (8-12 bits)
 void writeResolution(int resolution);
 
-float readTemperature(void);
+// Reads the current temperature in ºC, including negative values
+double readTemperature(void);
+
+// Helper function to calculate temperature from MSB and LSB (handles negative temps)
+double calcTemperature(uint8_t msb, uint8_t lsb);
 
 #endif
