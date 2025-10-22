@@ -15,7 +15,7 @@ void initSPI(int br, int cpol, int cpha) {
     
     RCC->APB2ENR |= RCC_APB2ENR_SPI1EN; // Turn on SPI1 clock domain (SPI1EN bit in APB2ENR)
 
-    // Enable GPIO pins
+    // Enable A,B, GPIO pins
     gpioEnable(GPIO_PORT_A);
     gpioEnable(GPIO_PORT_B);
     gpioEnable(GPIO_PORT_C);
@@ -39,7 +39,7 @@ void initSPI(int br, int cpol, int cpha) {
 
     // Set MCU as Master
     SPI1->CR1 |= (SPI_CR1_MSTR);
-    // SPI1->CR1 &= ~(SPI_CR1_CPOL | SPI_CR1_CPHA | SPI_CR1_LSBFIRST | SPI_CR1_SSM);
+    SPI1->CR1 &= ~(SPI_CR1_CPOL | SPI_CR1_CPHA | SPI_CR1_LSBFIRST | SPI_CR1_SSM);
 
     // Set chpa & cpol
     SPI1->CR1 |= _VAL2FLD(SPI_CR1_CPHA, cpha);
